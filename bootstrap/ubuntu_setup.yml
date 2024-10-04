@@ -1,0 +1,64 @@
+---
+- name: Machine setup
+  hosts: localhost
+  become: true
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - name: Get user
+      ansible.builtin.set_fact:
+        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
+    - name: Install packages on Arch Linux
+      ansible.builtin.pacman:
+        name:
+          - git
+          - htop
+          - vim
+          - gcc
+          - zsh
+          - firefox
+          - ncat
+          - make
+          - cmake
+          - curl
+          - wget
+          - gdb
+          - tar
+          - unzip
+          - gzip
+          - gdb
+          - python3
+          - python3-pip
+          - python3-venv
+          - python3-dev
+          - libssl-dev
+          - build-essential
+          - libffi-dev
+          - openjdk-21-jdk
+          # for pywal
+          - imagemagick
+          - procps
+
+        state: present
+      when: ansible_facts['distribution'] == "Archlinux"
+
+    - name: Install Pywal (wallpaper/theme manager)
+      ansible.builtin.pip:
+        name:
+          - pywal16
+
+    - name: Install Pwntools
+      ansible.builtin.pip:
+        name: pwntools
+
+    - name: Download Ghidra
+      ansible.builtin.get_url:
+        repo: "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_11.2_build/ghidra_11.2_PUBLIC_20240926.zip"
+        dest: "{{ ansible_facts['home'] }}/src/"
+
+    - name: Change shell to zsh
+      ansible.builtin.user:
+        name: "{{ remote_regular_user }}"
+        shell: /usr/bin/zsh
