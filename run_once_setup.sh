@@ -12,6 +12,9 @@ install_on_arch() {
   # TODO echo feedback
 }
 
+chmod +x ./init.sh
+./init.sh
+
 OS="$(uname -s)"
 case "${OS}" in
   Linux*)
@@ -37,3 +40,15 @@ case "${OS}" in
     exit 1
     ;;
 esac
+
+chmod +x ./install_ghidra.sh
+./install_ghidra.sh
+
+# chmod +x ./install_nvim_nightly.sh
+# ./install_nvim_nightly.sh
+
+chmod +x ./install_pywal16.sh
+./install_pywal16.sh
+
+chmod +x ./install_pwntools.sh
+./install_pwntools.sh

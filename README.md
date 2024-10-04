@@ -1,9 +1,23 @@
 # Dotfiles
+## Install 
+```bash
+export GITHUB_USERNAME=lordlflm
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+```
 
 ## features
 - walselect
 
 ## TODO
+- setup zsh (p10k, ohmyzsh, completion, etc)
+- source necessary files
+- install gdb variant
+- `echo 'wal -R' > ~/.profile`
+- `ssh-keygen`
+- install rust
+- install golang
+
+## Dont know howTODO
 - kitty margins opacity 0
 - kitty terminal borders follows theme set by pywal
 - kitty terminal blur not working on gnome?
