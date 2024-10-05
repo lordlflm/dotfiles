@@ -23,13 +23,13 @@ case "${OS}" in
       echo "Ansible installation complete."
       echo "Installing packages for Ubuntu..."
       # TODO change path to playbook
-      ansible-playbook ./bootstrap/ubuntu_setup.yml --ask-become-pass
+      ansible-playbook ~/.bootstrap/ubuntu_setup.yml --ask-become-pass
     elif [ -f /etc/arch-release ]; then
       install_on_arch
       echo "Ansible installation complete."
       echo "Installing packages for Archlinux..."
       # TODO change path to playbook
-      ansible-playbook ./bootstrap/archlinux_setup_setup.yml --ask-become-pass
+      ansible-playbook ~/.bootstrap/archlinux_setup_setup.yml --ask-become-pass
     else 
       echo "Unsupported Linux distro. Exiting..."
       exit 1
@@ -41,14 +41,29 @@ case "${OS}" in
     ;;
 esac
 
-chmod +x ./install_ghidra.sh
-./install_ghidra.sh
+# Install scripts
 
-# chmod +x ./install_nvim_nightly.sh
-# ./install_nvim_nightly.sh
+chmod +x ./install_hack_nerd_font.sh
+./install_hack_nerd_font.sh
 
 chmod +x ./install_pywal16.sh
 ./install_pywal16.sh
 
+chmod +x ./clone_wallpapers.sh
+./clone_wallpapers.sh
+
 chmod +x ./install_pwntools.sh
 ./install_pwntools.sh
+
+chmod +x ./install_ghidra.sh
+./install_ghidra.sh
+
+chmod +x ./install_nvim_nightly.sh
+./install_nvim_nightly.sh
+
+chmod +x ./install_node.sh
+./install_node.sh
+
+chmod +x ./install_rust.sh
+./install_rust.sh
+

@@ -9,13 +9,18 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 - walselect
 
 ## TODO
+- install docker
+- setup ranger
+
+- setup sway
+
+- kitty layouts like in terminator (split from active window)
+
 - setup zsh (p10k, ohmyzsh, completion, etc)
-- source necessary files
 - install gdb variant
-- `echo 'wal -R' > ~/.profile`
-- `ssh-keygen`
-- install rust
-- install golang
+- gdb switcher
+
+- setup onedrive alternative
 
 ## Dont know howTODO
 - kitty margins opacity 0

@@ -11,15 +11,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-
-
-
-
-
-
-
 ################# Custom aliases ################# 
-
 alias vim='NVIM_APPNAME=$nvimconfig nvim'
 
 walselect() {
@@ -28,27 +20,11 @@ walselect() {
   wallpaper=$(cat ${tmpfile})
   rm -f ${tmpfile}
   if [ -n "$wallpaper" ]; then
-    wal -i "$wallpaper"
+    wal -q -i "$wallpaper" 2> /dev/null
   fi
 }
 
-
-
-
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-
-
-
-
-
 ################# Nvim config selector ################# 
-
 nvimconfig=""
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 
@@ -66,5 +42,7 @@ function nvims() {
 }
 
 ################# Pywal #################
-
 (cat ~/.cache/wal/sequences &)
+
+################ neovim binary path #############
+export PATH="$HOME/neovim/bin:$PATH"

@@ -1,11 +1,25 @@
 #!/bin/bash
 
-echo "Downloading Ghidra..."
-wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_11.2_build/ghidra_11.2_PUBLIC_20240926.zip -O ~/src/ghidra_11.2.zip
+GHIDRA_VERSION="11.2" 
 
-echo "Unziping..."
-unzip ~/src/ghidra_11.2.zip
+read -p "Do you want to install Ghidra_${GHIDRA_VERSION}? [y/n] " r
+r=${r:-n}
 
-rm -rf ~/src/ghidra_11.2.zip
+if [[ "$r" == "y" ]]; then
+  if [ -d "$HOME/src/ghidra_${GHIDRA_VERSION}" ]; then
+    echo "Ghidra_${GHIDRA_VERSION} is already on the system. Skipping..."
+  else
+    zip_file="$HOME/src/ghidra_${GHIDRA_VERSION}.zip"
 
-echo "Done."
+    echo "Downloading Ghidra..."
+    wget "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${GHIDRA_VERSION}_build/ghidra_${GHIDRA_VERSION}_PUBLIC_20240926.zip" -O "$zip_file"
+
+    echo "Unziping..."
+    unzip "$zip_file" -d "$HOME/src/ghidra_${GHIDRA_VERSION}"
+    rm -rf "$zip_file"
+
+    echo "Done."
+  fi
+else
+  echo "Skipping..."
+fi
