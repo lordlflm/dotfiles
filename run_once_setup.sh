@@ -58,7 +58,7 @@ chmod +x ./install_pwntools.sh
 chmod +x ./install_ghidra.sh
 ./install_ghidra.sh
 
-chmod +x ./install_nvim_nightly.sh
+chmod +x ./install_nvim.sh
 ./install_nvim_nightly.sh
 
 chmod +x ./install_node.sh
@@ -67,3 +67,5 @@ chmod +x ./install_node.sh
 chmod +x ./install_rust.sh
 ./install_rust.sh
 
+chmod +x ./install_golang.sh
+./install_golang.sh

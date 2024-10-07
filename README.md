@@ -1,6 +1,9 @@
 # Dotfiles
 ## Install 
 ```bash
+# 1. setup Guest additions
+# 2. ssh-keygen
+# 3. Install git and curl
 export GITHUB_USERNAME=lordlflm
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 ```
@@ -10,7 +13,6 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 
 ## TODO
 - install docker
-- setup ranger
 
 - setup sway
 
@@ -33,9 +35,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 
 - password manager
 
-- ranger colorscheme follows theme set by pywal
 - ranger pops up in a small window in the middle
-- display images in ranger
 
 ## Cool wallpapers
 https://github.com/JaKooLit/Wallpaper-Bank/tree/main
