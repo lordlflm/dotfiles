@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "Creating directories"
-mkdir ~/src
-mkdir ~/git
+mkdir -p $HOME/src
+mkdir -p $HOME/git
 

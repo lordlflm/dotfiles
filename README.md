@@ -13,9 +13,9 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:$GITHUB_USER
 
 ## TODO
 - install docker
-
+- change shell
 - setup sway
-
+- scripts are currently all copied to ~/
 - kitty layouts like in terminator (split from active window)
 
 - setup zsh (p10k, ohmyzsh, completion, etc)
