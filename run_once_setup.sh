@@ -59,7 +59,7 @@ chmod +x ./install_ghidra.sh
 ./install_ghidra.sh
 
 chmod +x ./install_nvim.sh
-./install_nvim_nightly.sh
+./install_nvim.sh
 
 chmod +x ./install_node.sh
 ./install_node.sh
