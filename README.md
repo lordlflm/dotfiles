@@ -5,7 +5,7 @@
 # 2. ssh-keygen
 # 3. Install git and curl
 export GITHUB_USERNAME=lordlflm
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:$GITHUB_USERNAME/dotfiles.git
 ```
 
 ## features
