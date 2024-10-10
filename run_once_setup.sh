@@ -6,11 +6,11 @@ install_on_ubuntu() {
   # TODO echo feedback
 }
 
-install_on_arch() {
-  sudo pacman -Syu
-  sudo pacman -S ansible
-  # TODO echo feedback
-}
+# install_on_arch() {
+#   sudo pacman -Syu
+#   sudo pacman -S ansible
+#   # TODO echo feedback
+# }
 
 chmod +x ./init.sh
 ./init.sh
@@ -22,14 +22,7 @@ case "${OS}" in
       install_on_ubuntu
       echo "Ansible installation complete."
       echo "Installing packages for Ubuntu..."
-      # TODO change path to playbook
       ansible-playbook ~/.bootstrap/ubuntu_setup.yml --ask-become-pass
-    elif [ -f /etc/arch-release ]; then
-      install_on_arch
-      echo "Ansible installation complete."
-      echo "Installing packages for Archlinux..."
-      # TODO change path to playbook
-      ansible-playbook ~/.bootstrap/archlinux_setup_setup.yml --ask-become-pass
     else 
       echo "Unsupported Linux distro. Exiting..."
       exit 1
@@ -43,29 +36,26 @@ esac
 
 # Install scripts
 
-chmod +x ./install_hack_nerd_font.sh
-./install_hack_nerd_font.sh
+chmod +x ./.script/install_hack_nerd_font.sh
+./.script/install_hack_nerd_font.sh
 
-chmod +x ./install_pywal16.sh
-./install_pywal16.sh
+chmod +x ./.script/install_pywal16.sh
+./.script/install_pywal16.sh
 
-chmod +x ./clone_wallpapers.sh
-./clone_wallpapers.sh
+chmod +x ./.script/clone_wallpapers.sh
+./.script/clone_wallpapers.sh
 
-chmod +x ./install_pwntools.sh
-./install_pwntools.sh
+chmod +x ./.script/install_ghidra.sh
+./.script/install_ghidra.sh
 
-chmod +x ./install_ghidra.sh
-./install_ghidra.sh
+chmod +x ./.script/install_nvim.sh
+./.script/install_nvim.sh
 
-chmod +x ./install_nvim.sh
-./install_nvim.sh
+chmod +x ./.script/install_node.sh
+./.script/install_node.sh
 
-chmod +x ./install_node.sh
-./install_node.sh
+chmod +x ./.script/install_rust.sh
+./.script/install_rust.sh
 
-chmod +x ./install_rust.sh
-./install_rust.sh
-
-chmod +x ./install_golang.sh
-./install_golang.sh
+chmod +x ./.script/install_golang.sh
+./.script/install_golang.sh

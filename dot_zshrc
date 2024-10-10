@@ -14,15 +14,7 @@ source $ZSH/oh-my-zsh.sh
 ################# Custom aliases ################# 
 alias vim='NVIM_APPNAME=$nvimconfig nvim'
 
-walselect() {
-  tmpfile=$(mktemp)
-  ranger ~/Pictures/wallpapers/ --choosefile=${tmpfile}
-  wallpaper=$(cat ${tmpfile})
-  rm -f ${tmpfile}
-  if [ -n "$wallpaper" ]; then
-    wal -q -i "$wallpaper" 2> /dev/null
-  fi
-}
+alias walselect="~/.script/walselect.sh"
 
 ################# Nvim config selector ################# 
 nvimconfig=""
@@ -42,7 +34,9 @@ function nvims() {
 }
 
 ################# Pywal #################
-(cat ~/.cache/wal/sequences &)
+if [ -d "$HOME/.cache/wal" ]; then
+  (cat ~/.cache/wal/sequences &)
+fi
 
 ################ neovim binary path #############
 export PATH="$HOME/neovim/bin:$PATH"
