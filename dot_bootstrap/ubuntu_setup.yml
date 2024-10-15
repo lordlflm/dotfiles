@@ -13,7 +13,7 @@
     - name: Install packages on Ubuntu
       ansible.builtin.apt:
         name:
-          - ttf-font-awesome
+          - fonts-font-awesome
           - fzf
           - ranger
           - ninja-build
