@@ -12,8 +12,8 @@ install_on_ubuntu() {
 #   # TODO echo feedback
 # }
 
-chmod +x ./init.sh
-./init.sh
+chmod +x ./.script/init.sh
+./.script/init.sh
 
 OS="$(uname -s)"
 case "${OS}" in
