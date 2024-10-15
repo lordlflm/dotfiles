@@ -35,6 +35,10 @@ return {
           -- web
           'angular-language-server',
           'eslint-lsp',
+          -- java
+          'java-language-server',
+          -- rust
+          'rust-analyser',
 
         }
       })
@@ -96,6 +100,16 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
       })
+      -- java
+      lspconfig.java_language_server.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      -- rust
+      lspconfig.rust_analyser.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
     end
   },
 
@@ -107,6 +121,8 @@ return {
 
       null_ls.setup({
         sources = {
+          -- c/c++
+          null_ls.builtins.formatting.clang_format,
           -- lua
           null_ls.builtins.formatting.stylua,
           -- web
@@ -114,7 +130,6 @@ return {
           -- python
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.isort,
-
         }
       })
 
