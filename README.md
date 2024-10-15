@@ -4,7 +4,7 @@
 sudo apt install curl git bzip2 tar
 # Install guest additions `sudo /media/lflm/VBox_GAs_7.1.2/VBoxLinuxAdditions.run`
 export GITHUB_USERNAME=lordlflm
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:$GITHUB_USERNAME/dotfiles.git
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:$GITHUB_USERNAME/dotfiles.git
 ```
 
 ## features
