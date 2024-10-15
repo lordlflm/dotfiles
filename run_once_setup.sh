@@ -39,6 +39,9 @@ esac
 chmod +x ./.script/install_hack_nerd_font.sh
 ./.script/install_hack_nerd_font.sh
 
+chmod +x ./.script/setup_zsh.sh
+./.script/setup_zsh.sh
+
 chmod +x ./.script/install_pywal16.sh
 ./.script/install_pywal16.sh
 
