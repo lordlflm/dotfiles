@@ -62,3 +62,7 @@ chmod +x ./.script/install_rust.sh
 
 chmod +x ./.script/install_golang.sh
 ./.script/install_golang.sh
+
+source .profile
+source .bashrc
+source .zshrc
