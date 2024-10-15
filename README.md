@@ -1,9 +1,8 @@
 # Dotfiles
 ## Install 
 ```bash
-# 1. setup Guest additions
-# 2. ssh-keygen
-# 3. Install git and curl
+sudo apt install curl git bzip2 tar
+# Install guest additions `sudo /media/lflm/VBox_GAs_7.1.2/VBoxLinuxAdditions.run`
 export GITHUB_USERNAME=lordlflm
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:$GITHUB_USERNAME/dotfiles.git
 ```
