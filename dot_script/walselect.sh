@@ -6,10 +6,9 @@ tmpfile=$(mktemp)
   rm -f ${tmpfile}
   if [ -n "$wallpaper" ]; then
     backend=""
+    wal -q -i "$wallpaper" 2> /dev/null
+    wal --preview
     while [ "$backend" != "y" ]; do 
-      wal -q -i "$wallpaper" 2> /dev/null
-      wal --preview
-
       echo "Which color backend?"
       echo "[1] wal (default)"
       echo "[2] haishoku"
