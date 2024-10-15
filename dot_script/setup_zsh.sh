@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Setting up zsh..."
+rm -rf $HOME/.oh-my-zsh
 echo "Downloading oh-my-zsh..."
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "Downloading zsh-autosuggestions..."
