@@ -3,6 +3,7 @@
 ```bash
 sudo apt install curl git bzip2 tar
 # Install guest additions `sudo /media/lflm/VBox_GAs_7.1.2/VBoxLinuxAdditions.run`
+ssh-keygen
 export GITHUB_USERNAME=lordlflm
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:$GITHUB_USERNAME/dotfiles.git
 ```
@@ -16,12 +17,11 @@ sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:$GITHUB_U
 - install docker
 - setup sway
 - kitty layouts like in terminator (split from active window)
-
-- setup zsh (p10k, ohmyzsh, completion, etc)
-- install gdb variant
+- install gdb variants (peda, pwndeb, gef)
 - gdb switcher
+- discord, vscode
 
-- setup onedrive alternative
+- setup onedrive alternative (nextcloud, mount with webdav, iphone interface, web interface)
 - setup password manager
 ## Dont know howTODO
 - kitty margins opacity 0

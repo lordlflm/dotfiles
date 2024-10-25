@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_on_ubuntu() {
+install_on_debian() {
   sudo apt-get update
   sudo apt-get install -y ansible
   # TODO echo feedback
@@ -18,11 +18,11 @@ chmod +x ./.script/init.sh
 OS="$(uname -s)"
 case "${OS}" in
   Linux*)
-    if [ -f /etc/lsb-release ]; then
-      install_on_ubuntu
+    if [ -f /etc/debian_version ]; then
+      install_on_debian
       echo "Ansible installation complete."
-      echo "Installing packages for Ubuntu..."
-      ansible-playbook ~/.bootstrap/ubuntu_setup.yml --ask-become-pass
+      echo "Installing packages for Debian based distro..."
+      ansible-playbook ~/.bootstrap/debian_setup.yml --ask-become-pass
     else 
       echo "Unsupported Linux distro. Exiting..."
       exit 1
