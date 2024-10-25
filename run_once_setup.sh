@@ -66,3 +66,5 @@ chmod +x ./.script/install_golang.sh
 source .profile
 source .bashrc
 source .zshrc
+
+See /var/log/dotfiles_bootstrap.log for potential errors

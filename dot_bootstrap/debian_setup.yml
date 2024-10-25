@@ -5,12 +5,15 @@
   connection: local
   gather_facts: true
 
+  vars:
+    log_file_path: "/var/log/dotfiles_bootstrap.log"
+
   tasks:
     - name: Get user
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-    - name: Install packages on Ubuntu
+    - name: Install packages on Debian-based distros
       ansible.builtin.apt:
         name:
           - fonts-font-awesome
@@ -24,7 +27,8 @@
           - vim
           - gcc
           - zsh
-          - firefox
+          - firefox # Ubuntu
+          - firefox-esr # Debian distro
           - ncat
           - make
           - cmake
@@ -49,6 +53,24 @@
           - imagemagick
           - procps
         state: present
+      when: ansible_facts['os_family'] == 'Debian'
+      #when: ansible_facts['distribution'] in ['Ubuntu', 'Debian']
+      register: install_packages
+      ignore_errors: yes
+
+    - name: Initialize log file (if not exists)
+      ansible.builtin.file:
+        path: "{{ log_file_path }}"
+        state: touch
+        mode: '0644'
+
+    - name: Log failed packages to file
+      ansible.builtin.lineinfile:
+        path: "{{ log_file_path }}"
+        create: yes
+        line: "Failed packages: {{ install_packages.results | selectattr('failed', 'defined') | map(attribute='item') | join(', ') }}"
+      when: install_packages is defined and install_packages.results | selectattr('failed', 'defined') | list | length > 0
+
 
     - name: Change shell to zsh
       ansible.builtin.user:
