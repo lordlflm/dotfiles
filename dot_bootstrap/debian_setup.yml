@@ -61,7 +61,7 @@
       ansible.builtin.apt:
         name: "{{ item }}"
         state: present
-      loop: "{{ packages_to_install }}"
+      loop: "{{ packages_to_install_debian }}"
       register: install_results
       ignore_errors: yes
       when: ansible_facts['os_family'] == 'Debian'
