@@ -67,4 +67,4 @@ source .profile
 source .bashrc
 source .zshrc
 
-See /var/log/dotfiles_bootstrap.log for potential errors
+echo 'See /var/log/dotfiles_bootstrap.log for potential errors'
