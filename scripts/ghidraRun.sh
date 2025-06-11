@@ -1,0 +1,1 @@
+_JAVA_AWT_WM_NONREPARENTING=1 $HOME/src/ghidra_11.2_PUBLIC/ghidraRun
