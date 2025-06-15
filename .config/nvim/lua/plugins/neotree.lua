@@ -10,9 +10,11 @@ return {
   config = function()
     require("neo-tree").setup({
       use_libuv_file_watcher = true,
-      follow_current_file = {
-        enabled = true,
-      }
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+        }
+      },
     })
 
     vim.keymap.set('n', '<leader>t', ':Neotree filesystem toggle left<CR>', { desc = 'Show filesystem' })

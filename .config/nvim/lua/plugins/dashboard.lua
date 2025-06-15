@@ -3,8 +3,8 @@ return {
   event = 'VimEnter',
   config = function()
     require('dashboard').setup {
-      -- config
+      shortcut_type = "number",
     }
   end,
-  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  dependencies = { { 'nvim-tree/nvim-web-devicons' } }
 }

@@ -6,6 +6,11 @@ return {
   opts = {},
   config = function()
     require("ibl").setup({
+      exclude = {
+        filetypes = {
+          "dashboard",
+        },
+      },
       indent = { char = "│" },
       scope = {
         enabled = true,
