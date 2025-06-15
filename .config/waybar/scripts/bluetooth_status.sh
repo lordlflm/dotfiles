@@ -10,6 +10,6 @@ if [[ "$power" == "yes" ]]; then
         echo " On"
     fi
 else
-    echo " Off"
+    echo "Off"
 fi
 

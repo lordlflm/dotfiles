@@ -1,10 +1,10 @@
-vim.o.background = require("core.utils").get_light_mode()
-
+-- simply put vim.cmd.colorscheme('colorscheme_name') in the config function
+-- to activate the default colorscheme
 return {
   -- monochrome colorscheme
   {
     'aliqyan-21/darkvoid.nvim',
-    enabled = false,
+    -- enabled = false,
     name = 'darkvoid',
     lazy = false,
     priority = 1000,
@@ -12,14 +12,14 @@ return {
       -- Optionally configure and load the colorscheme
       -- directly inside the plugin declaration.
       require('darkvoid').setup()
-      vim.cmd.colorscheme('darkvoid')
+      -- vim.cmd.colorscheme('darkvoid')
     end
   },
 
   -- vague
   {
     "vague2k/vague.nvim",
-    enabled = false,
+    -- enabled = false,
     name = 'vague',
     lazy = false,
     priority = 1000,
@@ -28,7 +28,7 @@ return {
       require("vague").setup({
         -- optional configuration here
       })
-      vim.cmd.colorscheme('vague')
+      -- vim.cmd.colorscheme('vague')
     end
   },
 

@@ -1,5 +1,5 @@
 # Default config for sway
-#
+
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
@@ -40,6 +40,7 @@ output * bg /home/lflm/Pictures/wallpapers/a_logo_with_white_text.png fill
 exec swayidle -w \
        timeout 900 'swaylock -f -c 1d2021' \
        timeout 1800 'swaymsg "output * dpms off"' \
+       timeout 2700 'swaymsg "systemctl suspend"' \
        resume 'swaymsg "output * dpms on"' \
        before-sleep 'swaylock -f -c 1d2021'
        # inhibitor 'while playerctl status 2>/dev/null | grep -q Playing; do sleep 10; done'

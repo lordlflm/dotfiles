@@ -11,7 +11,7 @@ vim.cmd("set scrolloff=10")
 vim.cmd("set cursorline")
 
 -- ruler
-vim.cmd("set colorcolumn=80")
+vim.cmd("set colorcolumn=120")
 
 -- folding
 -- vim.opt.foldmethod = "expr"
