@@ -1,14 +1,9 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  opts = {
-    win = {
-      border = "rounded",
-      wo = {
-        winblend = 10, -- transparency
-      }
-    },
-  },
+  -- opts = {
+  --
+  -- },
   keys = {
     {
       "<leader>?",
@@ -20,6 +15,15 @@ return {
   },
   config = function()
     local wk = require("which-key")
+    wk.setup({
+      preset = "helix",
+      win = {
+        border = "rounded",
+        wo = {
+          winblend = 10, -- transparency
+        }
+      },
+    })
     wk.add({
       { "<leader>f", group = "Find" },        -- group
       { "<leader>h", group = "History" },     -- group

@@ -26,13 +26,16 @@
     "temperature",
     "sway/mode"
   ],
-  "modules-center": [
-    "sway/window"
-  ],
+
+  // "modules-center": [
+  //   // "sway/window"
+  // ],
+
   "modules-right": [
     "custom/bluetooth",
     "network",
-    "custom/keyboard-layout",
+    // "custom/keyboard-layout",
+    "sway/language",
     "battery",
     "backlight",
     "pulseaudio",
@@ -45,7 +48,11 @@
   // -------------------------------------------------------------------------
   // Modules
   // -------------------------------------------------------------------------
- 
+   "sway/language": {
+      "format": " {long}",
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+  },
+
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
@@ -115,17 +122,6 @@
     "on-click": "kitty btm"
   },
 
-  "custom/keyboard-layout": {
-    "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-    // Interval set only as a fallback, as the value is updated by signal
-    "interval": 5,
-    "format": " {}", // Icon: keyboard
-    // Signal sent by Sway key binding (~/.config/sway/key-bindings)
-    "signal": 1, // SIGHUP
-    "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/keyboard_layout_menu.sh"
-  },
-
   "memory": {
     "interval": 5,
     "format": " {}%", // Icon: memory
@@ -151,16 +147,6 @@
     "format-disconnected": "⚠ Disconnected",
     "tooltip-format": "{ifname}: {ipaddr}",
     "on-click": "kitty nmtui"
-  },
-
-  "sway/mode": {
-    "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
-    "tooltip": false
-  },
-
-  "sway/window": {
-    "format": "{}",
-    "max-length": 120
   },
 
   "sway/workspaces": {
@@ -208,6 +194,7 @@
       "car": "",
       "default": ["", ""]
     },
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click": "pavucontrol"
   },
 
@@ -227,8 +214,26 @@
     "on-click": "kitty btm"
   },
 
+  // UNUSED MODULES
+  "custom/keyboard-layout": {
+    "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
+    // Interval set only as a fallback, as the value is updated by signal
+    "interval": 5,
+    "format": " {}", // Icon: keyboard
+    // Signal sent by Sway key binding (~/.config/sway/key-bindings)
+    "signal": 1, // SIGHUP
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/keyboard_layout_menu.sh"
+  },
+
   "tray": {
     "icon-size": 21,
     "spacing": 10
-  }
+  },
+
+  "sway/language": {
+    "format": "{}",
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+  },
 }
+

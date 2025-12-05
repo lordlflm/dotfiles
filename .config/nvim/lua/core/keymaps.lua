@@ -27,7 +27,7 @@ keymaps.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format buffer" })
 keymaps.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 keymaps.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
 keymaps.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
-keymaps.set("n", "<leader>ga", vim.lsp.buf.code_action, { desc = "Code action" })
+keymaps.set({ "n", "v" }, "<leader>ga", vim.lsp.buf.code_action, { desc = "Code action" })
 keymaps.set("n", "<leader>gh", vim.lsp.buf.hover, { desc = "Hover" })
 
 -- completion
@@ -55,3 +55,6 @@ end, { desc = "Previous Diagnostic" })
 -- buffer navigation
 --
 -- see plugins/barbar.nvit
+
+-- tree
+keymaps.set('n', '<leader>t', ':Fyler kind=split_left<CR>', { desc = 'Show filesystem' })

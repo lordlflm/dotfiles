@@ -111,36 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias ghidraRun="$HOME/scripts/ghidraRun.sh"
-
-export PATH="$HOME/neovim/bin:$PATH"
+alias gdbs="$HOME/scripts/gdbs.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-function gdbs() {
-  items=("default" "peda" "gef" "pwndbg")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" GDB congif " --height=50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    echo "" > $HOME/.gdbinit
-  elif [[ $config == "peda" ]]; then
-    echo "source $HOME/src/peda/peda.py" > $HOME/.gdbinit
-  elif [[ $config == "gef" ]]; then
-    echo "source $HOME/.gef-2024.06.py"
-  elif [[ $config == "pwndbg" ]]; then
-    echo "source $HOME/src/pwndbg/gdbinit.py" > $HOME/.gdbinit
-  fi
-  gdb
-}
-
-# golang
-export PATH=$PATH:/usr/local/go/bin
-
-# node global packages
-export PATH=$PATH:$(npm get prefix)/bin
